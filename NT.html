@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>New Tab</title>
+  <title>IXL | Dashboard</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -194,7 +194,8 @@
     <select id="engine">
       <option value="https://search.brave.com/search?q=">Brave</option>
       <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
-      <option value="https://www.google.com/search?q=">Google</option>
+      <option value="https://www.bing.com/search?q=">Bing</option>
+      <option value="https://www.qwant.com/?q=">Qwant</option>
     </select>
   </form>
 
@@ -258,13 +259,24 @@
     };
 
     // Clock
-    function updateClock() {
-      const now = new Date();
-      $('#clock').textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
-      $('#date').textContent = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
+function updateClock() {
+  const now = new Date();
+
+  $('#clock').textContent = now.toLocaleTimeString('en-US', {
+    hour: '2-digit', 
+    minute: '2-digit',
+    hour12: true
+  });
+
+  $('#date').textContent = now.toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+
+updateClock();
+setInterval(updateClock, 1000);
 
     // Search
     $('#searchForm').onsubmit = e => {
